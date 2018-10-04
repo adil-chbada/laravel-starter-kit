@@ -1,10 +1,11 @@
+import env from '../config/env'
 export default {
 
     install(Vue, options) {
 
         Vue.prototype.$appFormatters = {
             formatDate: function(dateString,format) {
-                return moment(dateString).format(format ? format : 'MMMM DD, YYYY');
+                return moment(dateString).format(format ? format : env.dateFormat);
             },
             formatByteToMB (sizeInBytes) {
                 return (sizeInBytes / (1024*1024)).toFixed(2);
